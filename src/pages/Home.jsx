@@ -20,24 +20,28 @@ export default function Home() {
   return (
     <div>
         <Navbar />
-        <div className="flex flex-col items-center mt-16">
+        <div className="flex flex-col items-center mt-10">
             <h1 className="text-4xl font-bold">Generation Thailand</h1>
-            <h1 className="text-4xl font-bold">React - Assessment</h1>
+            <h1 className="text-4xl font-bold">
+                { (!showAdminSection & !showUserSection) ? "React - Assessment" 
+                 : showAdminSection ? "Home-Admin Sector" 
+                 : "Home-User Sector"}
+            </h1>
 
-            <div className="flex gap-20 mt-10">
+            <div className="flex gap-20 my-10">
                 <button 
                     onClick={() => { 
                         setShowAdminSection(false)
                         setShowUserSection(true)
                     }}
-                    className="border-2">User Home Sector
+                    className="border-2 h-10 w-52">User Home Sector
                 </button>
                 <button 
                     onClick={() => { 
                         setShowAdminSection(true)
                         setShowUserSection(false)
                     }}
-                    className="border-2">Admin Home Sector
+                    className="border-2 h-10 w-52">Admin Home Sector
                 </button>
             </div>
             <div>

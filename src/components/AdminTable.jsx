@@ -4,7 +4,7 @@ export default function AdminTable({usersData, handleDelete}) {
     <div>
         { usersData.length > 0 && (
         <div className=" flex justify-center ">      
-            <table className="border-2 mt-20 w-full">
+            <table className="border-2 mt-16 w-full">
                 <thead>
                     <tr>
                         <th className="border-2 p-2 w-1/4">Name</th>
@@ -19,8 +19,11 @@ export default function AdminTable({usersData, handleDelete}) {
                             <td className="border-2 p-2">{data.name}</td>
                             <td className="border-2 p-2">{data.lastname}</td>
                             <td className="border-2 p-2">{data.position}</td>
-                            <td className="border-2 p-2">
-                                <button onClick={() => handleDelete(data.id)}>Delete</button>
+                            <td className="border-2 p-2 text-center">
+                                <button 
+                                    onClick={() => handleDelete(data.id)}
+                                    className="text-red-600"
+                                    >Delete</button>
                             </td>
                         </tr>
                             ))}

@@ -28,30 +28,38 @@ export default function AdminSector({usersData, handleAddData, handleDelete}) {
   return (
     <div>
          <div>
-            <h2>Create User Here</h2>
+            <h2 className="mb-5">Create User Here</h2>
                 <div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className="flex gap-5">
                         <input 
                             type="text"
                             name="name" 
                             placeholder="Name"
                             value={newUser.name}
                             onChange={handleChange}
+                            className="border-2 h-10"
                         />                        
                         <input 
                             type="text"
                             name="lastname" 
                             placeholder="Last Name"
                             value={newUser.lastname}
-                            onChange={handleChange} />
+                            onChange={handleChange}
+                            className="border-2"
+                        />
                         <input 
                             type="text"
                             name="position" 
                             placeholder="Position"
                             value={newUser.position}
                             onChange={handleChange}
+                            className="border-2"
                         />
-                        <button type="submit">Save</button>
+                        <button 
+                        type="submit"
+                        className="bg-blue-700 text-white w-16"
+                        >                                                    
+                        Save</button>
                     </form>
                 </div>
                 <AdminTable usersData={usersData} handleDelete={handleDelete} />               
