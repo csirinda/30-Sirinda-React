@@ -1,5 +1,7 @@
 import { useState } from "react"
 import Navbar from "../components/Navbar"
+import AdminSector from "../components/AdminSector"
+import UserSector from "../components/UserSector"
 
 export default function Home() {
     const [showAdminSection, setShowAdminSection] =useState(false)
@@ -10,7 +12,11 @@ export default function Home() {
     const handleAddData = (newUser) => {
         setUsersData([...usersData, newUser])
     }
-    
+
+    const handleDelete = (userId) => {
+        setUsersData(usersData.filter((data) => data.id !== userId))
+    }
+
   return (
     <div>
         <Navbar />
@@ -35,19 +41,8 @@ export default function Home() {
                 </button>
             </div>
             <div>
-                { showAdminSection && (
-                    <div>
-                    <h2>Create User Here</h2>
-                    <div>
-                        <form>
-                            <input type="text" />
-                            <input type="text" />
-                            <input type="text" />
-                            <button type="submit">Save</button>
-                        </form>
-                    </div>
-                    </div>
-                )}                
+                { showUserSection && (<UserSector usersData={usersData} />)}   
+                { showAdminSection && (<AdminSector usersData={usersData} handleAddData={handleAddData} handleDelete={handleDelete} />)}                             
             </div>
         </div>
 
