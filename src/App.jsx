@@ -1,12 +1,17 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Owner from "./pages/Owner"
 
 function App() {
   
   return (
     <>      
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={< Home/>} />
+          <Route path="/owner" element={<Owner/>} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
